@@ -11,7 +11,7 @@ exports.auth_signup_post = async (req, res) => {
     return res.send("Username already taken!")
   }
 
-  if (req.body.password !== req.body.confirmpassword) {
+  if (req.body.password !== req.body.confirmPassword) {
     return res.send("password and confirm password must match ...")
   }
 

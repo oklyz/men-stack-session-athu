@@ -1,0 +1,14 @@
+<%- include("../partials/_nav") %>
+
+<div class="index-header">
+    <h1>All Listings</h1>
+    <a href="/listings/new">+ Add Listing</a>
+  </div>
+  <div class="card-container">
+    <% listings.forEach((listing)=> { %>
+    <a href="/listings/<%= listing._id %>">
+      <h4><%= listing.city %> Listing</h4>
+      <p>Owned by <%= listing.owner.username %></p>
+    </a>
+    <% }) %>
+  </div>

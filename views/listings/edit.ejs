@@ -1,0 +1,28 @@
+<%- include("../partials/_nav") %>
+
+<% if(listing.owner._id.equals(user._id)) { %> <%= listing.owner.username %> list 
+  <h1>Edit <%= listing.owner.username %> list</h1>
+  <form action="/listings/<%= listing._id %>/?_method=PUT" method="POST">
+
+  <label for="streetAddress">Street Address</label>
+  <input type="text" name="streetAddress" id="streetAddress" value="<%= listing.streetAddress %>">
+  <br>
+
+  <label for="city">City:</label>
+  <input type="text" name="city" id="city" value="<%= listing.city %>">
+
+  <br>
+
+  <label for="price">Prrice</label>
+  <input type="number" name="price" id="price" min="0" value="<%= listing.price %>">
+  <br>
+
+  <label for="size">Size</label>
+  <input type="number" name="size" id="size" min="0" value="<%= listing.Size %>">
+  <br>
+
+  <button type="submit">Add Listing</button>
+  </form>
+<% } else { %>
+<h1>You don't have the rights to edit this list </h1>
+<% } %> 
