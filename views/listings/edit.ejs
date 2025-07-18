@@ -1,28 +1,36 @@
-<%- include("../partials/_nav") %>
-
-<% if(listing.owner._id.equals(user._id)) { %> <%= listing.owner.username %> list 
-  <h1>Edit <%= listing.owner.username %> list</h1>
-  <form action="/listings/<%= listing._id %>/?_method=PUT" method="POST">
-
-  <label for="streetAddress">Street Address</label>
-  <input type="text" name="streetAddress" id="streetAddress" value="<%= listing.streetAddress %>">
-  <br>
-
-  <label for="city">City:</label>
-  <input type="text" name="city" id="city" value="<%= listing.city %>">
-
-  <br>
-
-  <label for="price">Prrice</label>
-  <input type="number" name="price" id="price" min="0" value="<%= listing.price %>">
-  <br>
-
-  <label for="size">Size</label>
-  <input type="number" name="size" id="size" min="0" value="<%= listing.Size %>">
-  <br>
-
-  <button type="submit">Add Listing</button>
-  </form>
-<% } else { %>
-<h1>You don't have the rights to edit this list </h1>
-<% } %> 
+<body>
+  <%- include('../partials/_nav.ejs') %>
+  <div class="new-container">
+    <div class="new-form-container">
+      <h1>Edit listing</h1>
+      <form action="/listings/<%= listing._id %>?_method=PUT" method="POST">
+        <label for="streetAddress">Street address:</label>
+        <input
+          type="text"
+          name="streetAddress"
+          id="street"
+          value="<%= listing.streetAddress %>"
+        />
+        <label for="city">City:</label>
+        <input type="text" name="city" id="city" value="<%= listing.city %>" />
+        <label for="price">Price:</label>
+        <input
+          type="number"
+          name="price"
+          id="price"
+          value="<%= listing.price %>"
+          min="0"
+        />
+        <label for="size">Size:</label>
+        <input
+          type="number"
+          name="size"
+          id="size"
+          value="<%= listing.size %>"
+          min="0"
+        />
+        <button type="submit">Edit Listing</button>
+      </form>
+    </div>
+  </div>
+</body>
